@@ -9,4 +9,4 @@ let rec comparator_tree tree elem comparator =
       if comparator elem value <= 0 then
         Node (value, comparator_tree left elem comparator, right)
       else
-        Node (value, left, comparator_tree right elem comparator)
+        Node (value, left, comparator_tree right elem comparator);;
