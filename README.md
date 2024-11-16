@@ -2,7 +2,8 @@
 
 ## Question 2: Binary Tree
 ```comparator_tree``` function that takes a binary search tree, a value to insert, and a comparison function, and then returns a new BST with the inserted value.
-To Test run the following:
+
+### To Test run the following:
 - Define a string comparator function:
 ```let str_comp s1 s2 = String.compare s1 s2;;```
 This function compares two strings lexicographically.
