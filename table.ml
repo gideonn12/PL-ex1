@@ -16,12 +16,12 @@ let rec all_combinations vars =
   | [] -> [[]]
   | var::rest ->
     let rest_combinations = all_combinations rest in
-    List.concat (List.map (fun comb -> [ (var, true)::comb; (var, false)::comb ]) rest_combinations)
-
+    List.concat (List.map (fun comb -> [ (var, true)::comb; (var, false)::comb ]) rest_combinations);;
 
 let table vars bool_expr =
   let combinations = all_combinations vars in
-  let results = List.map (fun env -> (env, eval env bool_expr)) combinations in
+  let sorted_combinations = List.sort (fun a b -> compare b a) combinations in
+  let results = List.map (fun env -> (env, eval env bool_expr)) sorted_combinations in
   Printf.printf "[";
   List.iteri (fun i (env, result) ->
     if i > 0 then Printf.printf "; ";
