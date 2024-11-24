@@ -18,10 +18,4 @@ let table_two var1 var2 bool_expr =
     (false, true, eval [(var1, false); (var2, true)] bool_expr);
     (false, false, eval [(var1, false); (var2, false)] bool_expr)
   ] in
-  Printf.printf "[";
-  List.iteri (fun i (a, b, result) ->
-    if i > 0 then Printf.printf "; ";
-    Printf.printf "(%b, %b, %b)" a b result
-  ) results;
-  Printf.printf "]\n";
   results;;

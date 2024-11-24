@@ -22,16 +22,4 @@ let table vars bool_expr =
   let combinations = all_combinations vars in
   let sorted_combinations = List.sort (fun a b -> compare b a) combinations in
   let results = List.map (fun env -> (env, eval env bool_expr)) sorted_combinations in
-  Printf.printf "[";
-  List.iteri (fun i (env, result) ->
-    if i > 0 then Printf.printf "; ";
-    Printf.printf "(";
-    Printf.printf "[";
-    List.iteri (fun j (var, value) ->
-      if j > 0 then Printf.printf "; ";
-      Printf.printf "(\"%s\", %b)" var value
-    ) env;
-    Printf.printf "], %b)" result
-  ) results;
-  Printf.printf "]\n";
   results;;
